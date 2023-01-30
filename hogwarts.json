@@ -1,0 +1,134 @@
+{
+  "school-details": {
+    "name": "Hogwarts School of Witchcraft and Wizardry",
+    "head": "Albus Percival Wulfric Brian Dumbledore",
+    "subjects": [
+      "Transfiguration",
+      "Defence Against the Dark Arts",
+      "Charms",
+      "Potions",
+      "Astronomy",
+      "History of Magic",
+      "Herbology"
+    ],
+    "games": [
+      "Quidditch"
+    ],
+    "properties": [
+      "Hiding place of the Philosopher's Stone",
+      "Chamber of Secrets",
+      "Passages",
+      "Room of Requirement",
+      "Forbidden Forest",
+      "Hogwarts Express"
+    ]
+  },
+  "students": [
+    {
+      "id": 7,
+      "name": "Harry Potter",
+      "patronus": "Stag",
+      "pet": "Hedwig the Snow Owl"
+    },
+    {
+      "id": 2,
+      "name": "Ron Weasley",
+      "patronus": "Jack Russel Terrier",
+      "pet": "Scabbers the Rat"
+    },
+    {
+      "id": 1,
+      "name": "Hermione Granger",
+      "patronus": "Otter",
+      "pet": "Crookshanks the Cat"
+    },
+    {
+      "id": 8,
+      "name": "Ginny Weasley",
+      "patronus": "Horse",
+      "pet": "Pygmy Puff the Arnold"
+    }
+  ],
+  "houses": [
+    {
+      "id": 1,
+      "name": "Gryffindor",
+      "founder": "Godric Gryffindor",
+      "jewel": "Ruby"
+    },
+    {
+      "id": 2,
+      "name": "Hufflepuff",
+      "founder": "Helga Hufflepuff",
+      "jewel": "Topaz"
+    },
+    {
+      "id": 3,
+      "name": "Ravenclaw",
+      "founder": "Rowena Ravenclaw",
+      "jewel": "Sapphire"
+    },
+    {
+      "id": 4,
+      "name": "Slytherin",
+      "founder": "Salazar Slytherin",
+      "jewel": "Emerald"
+    }
+  ],
+  "team": [
+    {
+      "name": "harry",
+      "description": "You are nice"
+    },
+    {
+      "name": "voldemort",
+      "description": "You are evil"
+    },
+    {
+      "name": "neutral",
+      "description": "You are neither nice nor evil"
+    }
+  ],
+  "brooms": [
+    {
+      "rank": 1,
+      "name": "Thunderbolt VII"
+    },
+    {
+      "rank": 2,
+      "name": "Firebolt"
+    },
+    {
+      "rank": 3,
+      "name": "Nimbus 2001"
+    },
+    {
+      "rank": 4,
+      "name": "Nimbus 2000"
+    },
+    {
+      "rank": 5,
+      "name": "Comet Two Ninety"
+    },
+    {
+      "rank": 6,
+      "name": "Cleansweep"
+    },
+    {
+      "rank": 7,
+      "name": "Shooting Star"
+    },
+    {
+      "rank": 8,
+      "name": "Silver Arrow"
+    },
+    {
+      "rank": 9,
+      "name": "Bluebottle"
+    },
+    {
+      "rank": 10,
+      "name": "Toy Brooms"
+    }
+  ]
+}

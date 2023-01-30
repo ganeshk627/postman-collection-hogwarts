@@ -1,0 +1,14 @@
+{
+	"id": "63d7914c-2577-4b51-87d3-3608e403b288",
+	"values": [
+		{
+			"key": "harrypotter",
+			"value": "http://localhost:3000",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2023-01-30T14:21:03.559Z",
+	"_postman_exported_using": "Postman/10.8.7"
+}
