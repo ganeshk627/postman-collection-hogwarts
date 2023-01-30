@@ -33,7 +33,7 @@ jobs:
              npm install -g newman
              npm install -g newman-reporter-htmlextra
              npm install -g newman-reporter-junitfull
-             npm install json-server
+             npm install -g json-server
              json-server --watch hogwarts.json
             
       - name: Make Directory for results
