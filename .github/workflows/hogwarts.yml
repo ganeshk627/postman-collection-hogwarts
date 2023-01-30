@@ -30,10 +30,10 @@ jobs:
         
       - name: Install Packages
         run:  |
-         npm install -g newman-reporter-htmlextra
-         npm install -g newman-reporter-junitfull
-         npm install -g json-server
-         json-server --watch hogwarts.json
+          npm install -g newman-reporter-htmlextra
+          npm install -g newman-reporter-junitfull
+          npm install -g json-server
+          json-server --watch hogwarts.json
           
       - name: Running Tests
         run: newman run RegressionTests.json -g GlobalVariables.json -r htmlextra,cli
