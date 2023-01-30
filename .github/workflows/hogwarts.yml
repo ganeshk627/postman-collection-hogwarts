@@ -40,7 +40,7 @@ jobs:
         run: mkdir -p testResults
           
       - name: Running Tests
-        run: newman run RegressionTests.json -g GlobalVariables.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html || true
+        run: newman run RegressionTests.json -g GlobalVariables.json -r htmlextra,cli --reporter-htmlextra-export testResults/htmlreport.html || true
         
       - name: Output the run Details
         uses: actions/upload-artifact@v2
