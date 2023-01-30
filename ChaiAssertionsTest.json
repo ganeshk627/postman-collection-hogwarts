@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "6ae20a4a-97b9-4314-a438-3697fdd3714f",
+		"name": "Chai Assertions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23764359"
+	},
+	"item": [
+		{
+			"name": "Chai Assertions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"/*",
+							"",
+							"Chai Assertions",
+							"---------------------",
+							"BDD - Expect, should --> Supported by all Nodejs applications and browsers",
+							"TDD - Assert --> Supported by all Nodejs applications and browsers except Internet Explorer",
+							"---------------------",
+							"",
+							"Only Expect assertions only supported by Postman",
+							"",
+							"*/",
+							"",
+							"pm.test(\"Verify Response Body\", ()=>{",
+							"    // pm.expect(pm.response.json()).to.be.equals(pm.response.json()) // compares object",
+							"    pm.expect(pm.response.json()).to.be.deep.equals(pm.response.json()) // compares contents of object",
+							"",
+							"})",
+							"",
+							"pm.test(\"Verify School Name\", ()=>{",
+							"    pm.expect(pm.response.json().name).to.be.an(\"String\");",
+							"    pm.expect(pm.response.json().name).to.equals(\"Hogwarts School of Witchcraft and Wizardry\", \"Name not matching!!!\");",
+							"    pm.expect(pm.response.json().name).to.be.equals(\"Hogwarts School of Witchcraft and Wizardry\");",
+							"    ",
+							"    // (pm.response.json(\"name\")).should.be.equals(\"Hogwarts School of Witchcraft and Wizardry\");",
+							"",
+							"    // pm.assert.equal(pm.response.json().name, \"Hogwarts School of Witchcraft and Wizardry\", \"Name not matching\");",
+							"})",
+							"",
+							"pm.test(\"Verify Chamber of Secrets in Properties\", ()=>{",
+							"    pm.expect(pm.response.json().properties).to.be.an(\"Array\").that.includes(\"Chamber of Secrets\");",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{harrypotter}}/school-details",
+					"host": [
+						"{{harrypotter}}"
+					],
+					"path": [
+						"school-details"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
