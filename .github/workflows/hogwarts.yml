@@ -29,16 +29,17 @@ jobs:
           node-version: '16.x'
         
       - name: Install Packages
-        run:  |
-            npm install -g newman-reporter-htmlextra
-            npm install -g newman-reporter-junitfull
-            npm install -g json-server
-            json-server --watch hogwarts.json
+        run: npm install -g newman-reporter-htmlextra
+         
+            
+      - name: Make Directory for results
+        run: mkdir -p testResults
           
       - name: Running Tests
-        run: newman run RegressionTests.json -g GlobalVariables.json -r htmlextra,cli
+        run: newman run RegressionTests.json -g GlobalVariables.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html || true
         
-      - name: Getting reports
+      - name: Output the run Details
         uses: actions/upload-artifact@v2
-        with:
-          name: Reports
+        with: 
+          name: RunReports
+          path: testResults
