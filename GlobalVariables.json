@@ -3,7 +3,7 @@
 	"values": [
 		{
 			"key": "harrypotter",
-			"value": "http://localhost:3000",
+			"value": "https://my-json-server.typicode.com/ganeshk627/json-server-hogwarts",
 			"enabled": true
 		}
 	],
