@@ -44,5 +44,5 @@ jobs:
       - name: Output the run Details
         uses: actions/upload-artifact@v2
         with: 
-          name: HtmlReportsPostman
+          name: RegressionReports
           path: Reports
