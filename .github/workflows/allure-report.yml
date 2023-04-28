@@ -39,7 +39,7 @@ jobs:
         run: mkdir -p Reports
           
       - name: Running Tests
-        run: newman run RegressionTests.json -g GlobalVariables.json -r htmlextra,cli,allure --reporter-htmlextra-export Reports/htmlreport.html --reporter-allure-export Reports/allure-report || true
+        run: newman run RegressionTests.json -g GlobalVariables.json -r htmlextra,cli,allure --reporter-htmlextra-export Reports/htmlreport.html --reporter-allure-export Reports/allure-results || true
         
       - name: Output the run Details
         uses: actions/upload-artifact@v2
