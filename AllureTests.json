@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "a5b56cd0-17e8-40ce-bc66-6d4b9b5ac0b7",
+		"name": "Github Actions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23764359"
+	},
+	"item": [
+		{
+			"name": "Regression",
+			"item": [
+				{
+					"name": "Create Student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// @allure.label.tag=student",
+									"pm.test(\"Verify Status Code 201\", ()=>{",
+									"    pm.expect(pm.response.code).to.have.equal(201)",
+									"})",
+									"",
+									"// @allure.label.tag=response",
+									"pm.test(\"Setting new id\", ()=>{",
+									"    var jsonResponse1 = JSON.parse(responseBody)",
+									"    var jsonResponse2 = pm.response.json()",
+									"    console.log(jsonResponse1.id)",
+									"    console.log(jsonResponse2.id)",
+									"    pm.collectionVariables.set(\"new_student_id\", jsonResponse1.id);",
+									"})",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Luna Lovegood\",\n    \"patronus\": \"Hare\",\n    \"pet\": \"Eastern Screech Owl\",\n    \"points\": 15\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{github_action_url}}/students",
+							"host": [
+								"{{github_action_url}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// @allure.label.tag=student",
+									"pm.test(\"Verify Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Luna Lovegood\",\n    \"patronus\": \"Hare\",\n    \"pet\": \"Eastern Screech Owl\",\n    \"points\": 30\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{github_action_url}}/students/{{new_student_id}}",
+							"host": [
+								"{{github_action_url}}"
+							],
+							"path": [
+								"students",
+								"{{new_student_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// @allure.label.tag=student",
+									"pm.test(\"Verify Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{github_action_url}}/students/{{new_student_id}}",
+							"host": [
+								"{{github_action_url}}"
+							],
+							"path": [
+								"students",
+								"{{new_student_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get New Student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// @allure.label.tag=student",
+									"pm.test(\"Verify Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"    pm.expect(pm.response.code).to.equals(404)",
+									"    pm.expect(pm.response.status).to.equals(\"Not Found\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{github_action_url}}/students/{{new_student_id}}",
+							"host": [
+								"{{github_action_url}}"
+							],
+							"path": [
+								"students",
+								"{{new_student_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"/*",
+							"",
+							"export collections and environment variables",
+							"push it github repo",
+							"create workflow yml file with corresponding dependencies",
+							"(yml should contains node, json-server, newman, html-extra)",
+							"now run",
+							"",
+							"npm install —g json-server ",
+							"npm install -g newman-reporter-htmlextra",
+							"npm install -g newman-reporter-junitfull",
+							"json-server --watch hogwarts.json",
+							"",
+							"",
+							"newman run RegressionTests.json -g GlobalVariables.json -r htmlextra,cli",
+							"*/"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://my-json-server.typicode.com/ganeshk627/json-server-hogwarts/students",
+					"protocol": "https",
+					"host": [
+						"my-json-server",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"ganeshk627",
+						"json-server-hogwarts",
+						"students"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "new_student_id",
+			"value": ""
+		},
+		{
+			"key": "github_action_url",
+			"value": "https://my-json-server.typicode.com/ganeshk627/json-server-hogwarts"
+		}
+	]
+}
